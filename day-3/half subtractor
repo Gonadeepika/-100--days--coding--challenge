@@ -1,0 +1,57 @@
+timescale 1ns/1ps
+
+module and1(
+  input p,b,
+  output bout);
+assign bout=p&b;
+endmodule
+
+
+timescale 1ns/1ps
+
+  module half subtractor_bh(
+input a,b,
+  output reg d,bout);
+always@(*)
+  begin
+if(a==0&&b==0) begin
+d=1'b0; bout=1'b0;end
+else if (a==0&&b==1)begin
+d=1'b1;bout=1'b1;
+end
+else if(a==1&&b==0)begin
+d=1,b1;bout=1'b0 end
+  else if( a==1&&b==1)begin
+  s=1b0; bout=1'b0; end
+  else begin
+  d=1'bx; bout =1'bx;
+end
+end
+endmodule
+
+
+
+
+
+module half_subtractor_df(
+input a,b'
+output d.bout);
+wire p;
+assign =p=-a;
+assign d=a^b;
+assign bout=p&b;
+endmodule
+
+
+
+
+module half_subtractor_st(
+input a,b'
+output d,bout);
+wire p;
+xor1 x1(a,b,d);
+not1 n1(a,p);
+and1 a1(p,b.bout);
+endmodule
+
+
