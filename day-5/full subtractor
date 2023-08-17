@@ -1,0 +1,30 @@
+module fullsubtractor(
+input a,b,c,
+output d,bout);
+wire p;
+assign d=a^b^c;
+assign p=-a;
+assign bout=(p&b)|(b&c)|(c&p);
+endmodule
+
+
+test bench code:-
+
+
+module fullsubtractor_tb();
+reg a,b,c;
+wire d;
+wire bout;
+fullsubtractor_tb uut(a,b,c,d,bout);
+initial begin
+a=0;b=0;c=0;#100;
+a=0;b=0;c=1;#100;
+a=0;b=1;c=0;#100;
+a=0;b=1;c=1;#100;
+a=1;b=0;c=0;#100;
+a=1;b=0;c=1;#100;
+a=1;b=1;c=0;#100;
+a=1;b=1;c=1;#100;
+#100;
+end 
+endmodule
