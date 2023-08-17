@@ -1,0 +1,55 @@
+timescale 1ns/1ps
+  module half_adder_bh(
+  input a,b,
+  output reg sum,carry);
+always @(a,b)
+  begin
+  sum=a^b;
+carry =a&b;
+end
+  endmodule
+
+
+  timescale1ns/1ps
+  module half_adder_df(
+  input a,b;
+  output sum,carry);
+assign sum=a^b;
+assign carry=a&b;
+endmodule
+
+
+  timescale 1ns/1ps
+
+
+  module half_adder_df_tb();
+reg a;
+reg b;
+wire sum;
+wire carry;
+half_adder_df_tb uut(a,b,sum,carry0;
+                     initial
+                     begin
+                     a=0;
+                     b=0;
+                     #100;
+                     a=0;
+                     b=1;
+                     #100;
+                     a=1;
+                     b=0;
+                     #100;
+                     a=1;
+                     b=1;
+                     #100;
+                     end
+                     endmodule
+
+
+
+                     timescale 1ns/1ps
+
+                     module half_adder_st(input a,b,output sum,carry);
+                     xor a1(sum,a,b);
+                     and a1(carry,a,b);
+                     endmodule
