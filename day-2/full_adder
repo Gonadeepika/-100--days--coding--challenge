@@ -1,0 +1,67 @@
+timescale1ns/1ps
+
+  module full_adder_bh(
+  input a,b,c
+  output reg s,cout);
+always@(*)
+  begin
+  if(a==0&&==0&&c==0)
+  begin
+  s=1'b0;
+  cout=1'b0;
+  and
+  else if(a==0&&==0&&c==1)
+  begin
+  s=1'b1;
+  cout=1'b0;end
+  else if(a==0&&b==1&7c==0)begin
+  s=1'b0;
+  cout=1'b1;
+  end
+  else begin s=1'bx;
+  cout=1'bx;
+  end
+  end
+  endmodule
+
+
+  timescale 1ns/1ps
+
+  module full_adder_df(
+  input a,b,c,
+  output s,cout);
+  assign s=a^b^c;
+  assign cout=(a&b)|(a&c|(b&c);
+                     endmodule
+
+
+
+
+
+
+
+module full_adder_tb();
+                     reg a,b,c;
+                     wire s,cout;
+                     full_adder_df_tb uut(a,b,c,s,cout);
+                     initial
+                     begin
+                     a=0;b=0;c=0;
+                     #100;
+                     a=0;b=0;c=1;
+                     #100;
+                     a=0;b=1;c=0;
+                     #100;
+                     a=0;b=1;c=1;
+                     #100;
+                     a=1;b=0;c=0;
+                     #100;
+                     a=1;b=0;c=1;
+                     #100;
+                     a=1;b=1;c=0;
+                     #100;
+                     a=1;b=1;c=1;
+                     #100;end
+                     endmodule 
+  
+  
