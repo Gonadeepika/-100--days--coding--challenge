@@ -1,0 +1,32 @@
+gate level modeling:-
+
+module mux_2_1(t,d0,d1,s);
+output y;
+input d0,d1,s;
+wire t1,t2,sbar;
+and(t1,d1,s), (t2,d0.sbar);
+not(sbar,s);
+or(y,t1,t2);
+endmodule
+
+dataflow modeling:-
+
+module mux_2_1(d0,d1,s,y);
+output y;
+input d0,d1,s;
+assign y=(s)?d1:d0;
+endmodule
+
+behavioural modeling:-
+
+module mux_2_1(d0,d1,s,y);
+input wire d0,d1,s;
+output reg y;
+always@(d0 or d1 or s)
+begin
+if(s)
+y=d1;
+else
+y=d0;
+end 
+endmodule
