@@ -1,0 +1,37 @@
+gate level modeling:-
+
+module mux_4_1 (out,a,b,c,d,s0,s1);
+output out;
+input a,b,c,d,s0,s1;
+wire s0bar,s1bar, T1,T2,T3,T4;
+not (s0bar,s0)0,(s1bar,s1);
+and (T1,a,s0bar,s1bar),(T2,b,s0bar,s1);
+or (out,T1,T2,T3,T4);
+endmodule
+
+data flow modeling:-
+
+module mux_4_1(
+input a,b,c,d,s0,s1,
+output out);
+assign out = s1?(s0?d:c):(s0?b:a);
+endmodule
+
+
+
+behavioural modeling:-
+
+module mux_4_1(a,b,c,d,s0,s1,out);
+input wire a,b,c,d;
+input wire s0,s1;
+output reg out;
+always@(a or b or c or d or s0 or s1)
+begin
+case(s0|s1)
+2'b00 : out<= a;
+2'b01 : out <=b;
+2'b10 : out <=c;
+2'b11 : out <= d;
+end
+endmodule
+
