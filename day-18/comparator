@@ -1,0 +1,23 @@
+
+module comparator_tb();
+reg[3:0]a;
+reg[3:0]b;
+wire[2:0]y;
+integer i;
+comparator_tb uut(a,b,y);
+initial
+begin
+for(i=0;i<8; i=i+1)
+  begin
+    a=$random;
+b=$random;
+#10;
+end
+end
+initial
+begin
+$monitor("a=%b,b=%b,a_gt_b=%b,a_eq_b=%b,a_lt_b=%b", a,b,y[0],y[1],y[2]);
+#80;
+$finish;
+end
+endmodule
