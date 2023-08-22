@@ -1,0 +1,18 @@
+module dumux_tb();
+reg in;
+  reg [2:0] se1;
+wire [7:0] y;
+demux_tb uut(.in(in),.se1(se1),.y(y));
+initial
+  begin
+  in=2'b1;
+  sel=3'b000;
+  #100;
+  repeat(7)
+  brgin
+  se1=se1+1;
+#100;
+end
+  $finish;
+end
+  endmodule
