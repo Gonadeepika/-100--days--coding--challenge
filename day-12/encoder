@@ -1,0 +1,26 @@
+module encoder(
+input[7:0]d,
+output [2:0]y);
+assign y]2]= d[4]|d[5]|d[6]|d[7];
+assign y[1]=d[2]|d[3]|d[6]|d[7];
+assign y[0] =d[1]|d[3]|d[5]|d[7];
+endmodule
+
+
+module encoder_tb();
+reg [7:0]d;
+wire [2:0]y;
+encoder uut(.d(d),.y(y));
+initial
+begin
+d=8'b0000_0001; #100;
+d=8'b0000_0010; #100;
+d=8'b0000_0100; #100;
+d-8'b0000_1000; #100;
+d=8'b0001_0000; #100;
+d=8'b0010_0000; #100;
+d=8'b0100_0000; #100;
+d=8'b1000_0000; #100;
+$finish;
+end
+endmodule
