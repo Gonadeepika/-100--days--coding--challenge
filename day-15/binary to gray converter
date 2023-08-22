@@ -1,0 +1,16 @@
+module binary_to_gray(
+input [3:0]bin,
+output[3:0]gray);
+buffer b1(bin[3],gray[3]);
+xor_gate x1(bin[3],bin[2],gray[2]),
+x2(bin[2],bin[1],gray[1]),
+x3(bin[1],bin[0],gray[0]);
+endmodule
+
+module duffer(input a,output z);
+assign z=a;
+endmodule
+
+module x02_gate (input a,b output z);
+assign z=a^b;
+endmodule
