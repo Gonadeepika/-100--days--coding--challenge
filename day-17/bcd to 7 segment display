@@ -1,0 +1,15 @@
+module bec_to_7seg_tb();
+reg[3:0]bcd;
+wire[6:0]seg;
+integer count;
+bcd_to_7seg_tb uut(.bcd(bcd),.srg(seg));
+initial
+begin
+for(count=0; count<=8; count=count+1)
+begin
+d
+bcd=count;
+#100;
+end
+end
+endmodule
