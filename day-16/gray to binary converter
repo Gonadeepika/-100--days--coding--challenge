@@ -1,0 +1,29 @@
+module gray_to_bin(
+  input [3:0]gray,
+  output [3:0]bin);
+assign bin[3] =gray[3];
+assign bin[2] =gray[2]^bin[3];
+assign bin[1] = gray[1]^bin[2];
+assign bin[0] = gray[0]^bin[1];
+endmodule
+
+
+
+  module gray_to_bin_tb();
+reg[3:0]gray;
+wire[3:0]bin;
+integer i;
+gray_to_bin uut(.gray(gray),.bin(bin));
+initial
+  begin
+  gray[3:0]=bin[3:0];
+#10;
+end
+  end
+  initial
+  begin
+  $monoitor(" gray=%b,bin=%b", gray,bin);
+#160;
+$finish;
+end
+  endmodule
