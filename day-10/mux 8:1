@@ -1,0 +1,12 @@
+module mux_8_1(
+input [7:0]d,
+input [2:0]s;
+output out);
+wire[10:0]t;
+not(t1,s0);
+not(t2,s1);
+not(t3,s2);
+and(t4,d0,t1,t2,t3) (t5,d1,s0,t2,t3);
+and(t6,d2,t1,s1,t3),(t7,d3,s0,s1,t3);
+or(out,t4,t5,t6,t7,t8,t9,t10,t11);
+endmodule
